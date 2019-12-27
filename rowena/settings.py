@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'quotes.apps.QuotesConfig',
     'quiz.apps.QuizConfig',
     'django.contrib.admin',
     'django.contrib.auth',
