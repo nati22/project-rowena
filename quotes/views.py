@@ -1,3 +1,42 @@
-from django.shortcuts import render
+from django.http import HttpResponse, Http404
+from django.shortcuts import get_object_or_404
+from django.template import loader
 
-# Create your views here.
+from .models import Quote
+import random
+
+
+def index(request):
+    try:
+        ids = Quote.objects.values_list('id', flat=True)
+        quote = get_object_or_404(Quote, id=random.choice(ids))
+    except Quote.DoesNotExist:
+        raise Http404("Question does not exist")
+
+    template = loader.get_template('quotes/quote.html')
+    context = {
+        'quote': quote,
+    }
+    return HttpResponse(template.render(context, request))
+
+
+def list_view(request):
+    quotes_list = Quote.objects.all()
+    template = loader.get_template('quotes/list.html')
+    context = {
+        'quotes': quotes_list,
+    }
+    return HttpResponse(template.render(context, request))
+
+
+def single_view(request, quote_id):
+    try:
+        quote = get_object_or_404(Quote, id=quote_id)
+    except Quote.DoesNotExist:
+        raise Http404("Question does not exist")
+
+    template = loader.get_template('quotes/quote.html')
+    context = {
+        'quote': quote,
+    }
+    return HttpResponse(template.render(context, request))

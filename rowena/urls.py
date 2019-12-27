@@ -19,6 +19,7 @@ from quiz.views import config as config_view
 
 urlpatterns = [
     path('quiz/', include('quiz.urls')),
+    path('quotes/', include('quotes.urls')),
     path('admin/', admin.site.urls),
     path('config/', config_view, name='config')
 ]

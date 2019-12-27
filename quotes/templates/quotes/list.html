@@ -1,9 +1,10 @@
 {% extends 'quotes/base.html' %}
 {% block content %}
     {% if quotes %}
+        <h3>List of quotes:</h3>
         <ul>
             {% for quote in quotes %}
-                <li>{{ quote.text }}</li>
+                <li>{{ quote.text }} ({{ quote.id }})</li>
             {% endfor %}
         </ul>
     {% else %}
