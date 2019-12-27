@@ -10,7 +10,7 @@ def index(request):
 
 def config(request):
     return HttpResponse(f"""
-    DEBUG = \'{os.environ.get('DEBUG')}\'\n
+    DEBUG = {os.environ.get('DEBUG')}\n
     DATABASE_NAME = \'{os.environ.get('DATABASE_NAME')}\'\n
     DATABASE_URL = \'{os.environ.get('DATABASE_URL')[:20] if os.environ.get('DATABASE_URL') else None}\'\n
     DATABASE_USER = \'{os.environ.get('DATABASE_USER')}\'\n
