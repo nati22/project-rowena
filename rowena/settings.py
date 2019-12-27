@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
+import mimetypes
 import os
 
 import django_heroku
@@ -125,6 +126,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+# https://stackoverflow.com/a/35557243/1446945
+mimetypes.add_type("text/css", ".css", True)
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
