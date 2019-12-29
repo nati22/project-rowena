@@ -21,6 +21,7 @@ def list_view(request):
 
 
 def single_view(request, quote_id):
+    from django.conf import settings
     try:
         quote = get_object_or_404(Quote, id=quote_id)
     except Quote.DoesNotExist:
@@ -29,6 +30,7 @@ def single_view(request, quote_id):
     template = loader.get_template('quotes/quote.html')
     context = {
         'quote': quote,
-
+        'is_debug': settings.DEBUG,
+        'debug_type': str(type(settings.DEBUG))
     }
     return HttpResponse(template.render(context, request))
