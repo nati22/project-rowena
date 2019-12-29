@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from quiz.views import config as config_view
+from quotes.views import index as quotes_index
 
 urlpatterns = [
+    path('', quotes_index),
     path('quiz/', include('quiz.urls')),
     path('quotes/', include('quotes.urls')),
     path('admin/', admin.site.urls),

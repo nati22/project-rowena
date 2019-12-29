@@ -7,17 +7,8 @@ import random
 
 
 def index(request):
-    try:
-        ids = Quote.objects.values_list('id', flat=True)
-        quote = get_object_or_404(Quote, id=random.choice(ids))
-    except Quote.DoesNotExist:
-        raise Http404("Question does not exist")
-
-    template = loader.get_template('quotes/quote.html')
-    context = {
-        'quote': quote,
-    }
-    return HttpResponse(template.render(context, request))
+    ids = Quote.objects.values_list('id', flat=True)
+    return single_view(request, random.choice(ids))
 
 
 def list_view(request):
@@ -38,5 +29,6 @@ def single_view(request, quote_id):
     template = loader.get_template('quotes/quote.html')
     context = {
         'quote': quote,
+
     }
     return HttpResponse(template.render(context, request))
