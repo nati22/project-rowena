@@ -125,6 +125,7 @@ STATIC_URL = '/static/'
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
+    '/var/www/static/'
 )
 
 # https://stackoverflow.com/a/35557243/1446945
