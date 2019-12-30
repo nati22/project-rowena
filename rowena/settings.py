@@ -119,14 +119,18 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = ''
 STATIC_URL = '/static/'
-
-# Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
-    '/var/www/static/'
 )
+
+# Extra places for collectstatic to find static files.
+# STATICFILES_DIRS = (
+#     os.path.normpath(os.path.join(BASE_DIR, 'static')),
+# )
+DEBUG_PROPAGATE_EXCEPTIONS = True
 
 # https://stackoverflow.com/a/35557243/1446945
 mimetypes.add_type("text/css", ".css", True)
