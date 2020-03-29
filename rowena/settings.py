@@ -126,7 +126,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-# Extra places for collectstatic to find static files.
+# Extra places for collectstatic to ƒind static files.
 # STATICFILES_DIRS = (
 #     os.path.normpath(os.path.join(BASE_DIR, 'static')),
 # )
