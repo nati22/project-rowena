@@ -1,0 +1,1 @@
+## collectstatic seems to need a /static/ dir
