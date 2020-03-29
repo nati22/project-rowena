@@ -126,8 +126,6 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
-
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
 # https://stackoverflow.com/a/35557243/1446945
