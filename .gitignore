@@ -3,6 +3,7 @@ venv
 
 *.pyc
 staticfiles
+!staticfiles/README.md
 **/**.sqlite3
 
 # If you are using PyCharm #
